@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('recipe', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('body');
+            $table->string('cuisine');
+            $table->Integer('strength');
             $table->timestamps();
         });
     }
