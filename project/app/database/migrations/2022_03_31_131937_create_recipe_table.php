@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('body');
-            $table->string('cuisine');
-            $table->Integer('strength');
+            $table->string('cuisine')->nullable();;
+            $table->Integer('strength')->nullable();;
             $table->timestamps();
         });
     }
