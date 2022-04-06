@@ -25,8 +25,7 @@ class RecipesTableSeeder extends Seeder
             Recipe::create([
                 'name' => $faker->sentence,
                 'body' => $faker->sentence,
-                'cuisine' => $faker->sentence,
-                'strength' => $faker->numberBetween(1,5),
+                'cuisine' => $faker->sentence
             ]);
         }
     }

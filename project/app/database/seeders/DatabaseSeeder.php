@@ -15,5 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call(UsersTableSeeder::class);
+        $this->call(RecipesTableSeeder::class);
     }
 }
+
+// does not work, need to call seeders separately
+// php artisan db:seed --class=RecipesTableSeeder
+// php artisan db:seed --class=UsersTableSeeder

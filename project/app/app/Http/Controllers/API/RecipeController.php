@@ -19,7 +19,6 @@ class RecipeController extends Controller
         $data['name'] = $request['name'];
         $data['body'] = $request['body'];
         $data['cuisine'] = $request['cuisine'];
-        $data['strength'] = $request['strength'];
         Recipe::create($data);
         return response()->json([
             'message' => "Successfully created",
@@ -44,7 +43,6 @@ class RecipeController extends Controller
         $data['name'] = $request['name'];
         $data['body'] = $request['body'];
         $data['cuisine'] = $request['cuisine'];
-        $data['strength'] = $request['strength'];
         Recipe::find($id)->update($data);
         return response()->json([
             'message' => "Successfully updated",

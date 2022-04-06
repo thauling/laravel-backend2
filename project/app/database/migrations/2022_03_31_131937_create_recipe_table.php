@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('recipe', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('body');
-            $table->string('cuisine')->nullable();;
-            $table->Integer('strength')->nullable();;
+            $table->text('body')->nullable();
+            $table->string('cuisine')->nullable();
             $table->timestamps();
         });
     }
