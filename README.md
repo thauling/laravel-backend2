@@ -44,4 +44,6 @@ npm rebuild bcrypt --build-from-source
 
 is this required?
 
+## Heroku
 
+https://u06-recipe-api.herokuapp.com/ | https://git.heroku.com/u06-recipe-api.git
