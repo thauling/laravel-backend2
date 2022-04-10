@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        User::unguard();
          // Let's clear the users table first
          User::truncate();
 
@@ -24,7 +25,7 @@ class UsersTableSeeder extends Seeder
          // Let's make sure everyone has the same password and 
          // let's hash it before the loop, or else our seeder 
          // will be too slow.
-         $password = Hash::make('toptal');
+         $password = Hash::make('12345678');
  
          User::create([
              'name' => 'Administrator',
@@ -33,12 +34,13 @@ class UsersTableSeeder extends Seeder
          ]);
  
          // And now let's generate a few dozen users for our app:
-         for ($i = 0; $i < 5; $i++) {
+         for ($i = 0; $i < 3; $i++) {
              User::create([
                  'name' => $faker->name,
                  'email' => $faker->email,
                  'password' => $password,
              ]);
          }
+         User::reguard();
     }
 }

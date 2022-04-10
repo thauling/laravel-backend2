@@ -15,6 +15,7 @@ class RecipesTableSeeder extends Seeder
      */
     public function run()
     {
+        Recipe::unguard();
         // Let's truncate our existing records to start from scratch.
         Recipe::truncate();
 
@@ -25,8 +26,10 @@ class RecipesTableSeeder extends Seeder
             Recipe::create([
                 'name' => $faker->sentence,
                 'body' => $faker->sentence,
-                'cuisine' => $faker->sentence
+                'cuisine' => $faker->sentence,
+                'user_id' => 1
             ]);
         }
+        Recipe::reguard();
     }
 }
