@@ -37,3 +37,11 @@ to solve SSL certificate error
 	make sure that Header is set:
 	Accept	application/json
 
+
+## notes
+
+npm rebuild bcrypt --build-from-source 
+
+is this required?
+
+
