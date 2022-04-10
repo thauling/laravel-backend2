@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('body')->nullable();
             $table->string('cuisine')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
