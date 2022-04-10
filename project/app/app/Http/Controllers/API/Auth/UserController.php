@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 Use App\Models\User;
@@ -33,6 +34,7 @@ class UserController extends Controller
     }
 
     public function logout(Request $request) {
+        // dd(Auth::id());
         auth()->user()->tokens()->delete();
         return [
             "message" => "logged out"
