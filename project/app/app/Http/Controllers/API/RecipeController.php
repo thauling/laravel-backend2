@@ -25,12 +25,26 @@ class RecipeController extends Controller
 
   public function create(Request $request)
   {
-    // dd(Auth::id());
-    $data['name'] = $request['name'];
-    $data['body'] = $request['body'];
-    $data['cuisine'] = $request['cuisine'];
-    $data['user_id'] = Auth::id();
-    Recipe::create($data);
+
+  $fields = $request->validate([
+        'name' => ['required', 'string'],
+        'body' => ['required', 'string'],
+        'cuisine' => ['required', 'string']
+      ]);
+
+      Recipe::create([
+        'name' => $fields['name'],
+        'body' => $fields['body'],
+        'cuisine' => $fields['cuisine'],
+        'user_id' =>  Auth::id()
+      ]);
+
+    // $data['name'] = $request['name'];
+    // $data['body'] = $request['body'];
+    // $data['cuisine'] = $request['cuisine'];
+    // $data['user_id'] = Auth::id();
+    // Recipe::create($data);
+
     return response()->json([
       'message' => "Successfully created",
       'success' => true
@@ -39,7 +53,7 @@ class RecipeController extends Controller
 
   public function delete($id)
   {
-    $res = Recipe::where('id', $id)->where('user_id', Auth::id())->delete(); //->where('user_id', Auth::id()))
+    $res = Recipe::where('id', $id)->where('user_id', Auth::id())->delete(); 
     return response()->json([
       'message' => "Delete request accepted",
       'success' => true

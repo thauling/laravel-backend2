@@ -16,7 +16,7 @@ class UserController extends Controller
         $fields = $request->validate([
             'name' => ['required', 'string'],
             'email' => ['required','string','unique:users','email'],
-            'password' => ['required', 'string', 'confirmed'] //confirmed needs password_confirmed field!
+            'password' => ['required', 'string', 'confirmed'] 
         ]);
         $user = User::create([
             'name' => $fields['name'],
